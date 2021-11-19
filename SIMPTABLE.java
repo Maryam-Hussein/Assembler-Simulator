@@ -32,7 +32,8 @@ public class SIMPTABLE
 
             String ABC[] = text.split("\\s");
             int i;
-            int LouctionCounter = Integer.parseInt(ABC[5]);
+            String x = ABC[5];
+            Integer LouctionCounter = Integer.valueOf(x);
 
             for (i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
             {
@@ -40,14 +41,15 @@ public class SIMPTABLE
                 if (ABC[i].equals("LDX")) {
                     LouctionCounter+=3;
                     System.out.println(A.get("LDX")+"           "+LouctionCounter);
-                } else if (ABC[i].equals("LDCH")) {
+                }
+                else if (ABC[i].equals("LDCH")) {
                     LouctionCounter+=3;
                     System.out.println(A.get("LDCH")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("STCH")) {
                     LouctionCounter+=3;
                     System.out.println(A.get("STCH")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("TIX")) {
-                    LouctionCounter+=3;
+                   LouctionCounter+=3;
                     System.out.println(A.get("TIX")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("JLT")) {
                     LouctionCounter+=3;
@@ -68,7 +70,7 @@ public class SIMPTABLE
                     LouctionCounter+=3;
                     System.out.println(A.get("SUB")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("ADD")) {
-                    LouctionCounter+=3;
+                    LouctionCounter += 3;
                     System.out.println(A.get("ADD")+"           "+LouctionCounter);
                 }
             }
