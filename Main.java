@@ -19,6 +19,13 @@ public class Main
         System.out.println("OPTABLE                             ");
         System.out.println("------------------------------------");
         OPTABLE optable = new OPTABLE();
-        optable.print();
+        optable.printOne();
+
+        System.out.println(" ");
+        System.out.println("------------------------------------");
+        System.out.println("SIMPTABLE                             ");
+        System.out.println("------------------------------------");
+        SIMPTABLE simptable = new SIMPTABLE();
+        SIMPTABLE.printTwo();
     }
 }
