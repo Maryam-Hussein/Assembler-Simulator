@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 public class OPTABLE
 {
-     void print() throws Exception {
+     void printOne() throws Exception {
             // Hash map act as database
             HashMap<String, String> A = new HashMap<String, String>(); // A is name of Hash map
             A.put("LDX", "04");
