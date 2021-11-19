@@ -27,48 +27,49 @@ public class SIMPTABLE
         /////////////////////////////////////////////////////////////////////////////////////////////////
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Assmbler\\src\\com\\company\\input.txt"));
         String text;
-        while ((text = bufferedReader.readLine()) != null) {
+        while ((text = bufferedReader.readLine()) != null)
+        {
+
             String ABC[] = text.split("\\s");
             int i;
+            int LouctionCounter = Integer.parseInt(ABC[5]);
+
             for (i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
             {
-                String LouctionCounter = new String();
-                LouctionCounter = ABC[5];
 
-                //LouctionCounter += 3;
                 if (ABC[i].equals("LDX")) {
-                    System.out.println(A.get("LDX"));
-                    //LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("LDX")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("LDCH")) {
-                    System.out.println(A.get("LDCH"));
-                    //LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("LDCH")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("STCH")) {
-                    System.out.println(A.get("STCH"));
-                   // LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("STCH")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("TIX")) {
-                    System.out.println(A.get("TIX"));
-                   // LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("TIX")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("JLT")) {
-                    System.out.println(A.get("JLT"));
-                  //  LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("JLT")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("JGT")) {
-                    System.out.println(A.get("JGT"));
-                    //LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("JGT")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("JEQ")) {
-                    System.out.println(A.get("JEQ"));
-                   // LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("JEQ")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("DIV")) {
-                    System.out.println(A.get("DIV"));
-                   // LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("DIV")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("MUL")) {
+                    LouctionCounter+=3;
                     System.out.println(A.get("MUL"));
-                   // LouctionCounter += 3;
                 } else if (ABC[i].equals("SUB")) {
-                    System.out.println(A.get("SUB"));
-                   // LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("SUB")+"           "+LouctionCounter);
                 } else if (ABC[i].equals("ADD")) {
-                    System.out.println(A.get("ADD"));
-                   // LouctionCounter += 3;
+                    LouctionCounter+=3;
+                    System.out.println(A.get("ADD")+"           "+LouctionCounter);
                 }
             }
         }
