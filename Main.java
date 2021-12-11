@@ -15,11 +15,14 @@ package com.company;
 public class Main
 {
     public static void main(String[] args) throws Exception {
+
+
         System.out.println("------------------------------------");
         System.out.println("OPTABLE                             ");
         System.out.println("------------------------------------");
         OPTABLE optable = new OPTABLE();
         optable.printOne();
+
 
         System.out.println(" ");
         System.out.println("------------------------------------");
@@ -31,10 +34,17 @@ public class Main
 
         System.out.println(" ");
         System.out.println("------------------------------------");
-        System.out.println("ObjCode                             ");
+        System.out.println("ObjCode 'By hexadecimal'            ");
         System.out.println("------------------------------------");
         ObjCode obj = new ObjCode();
         obj.printThree();
-        obj.printFour();
+
+
+        System.out.println(" ");
+        System.out.println("------------------------------------");
+        System.out.println("Machine Code                        ");
+        System.out.println("------------------------------------");
+        MacCode macCode = new MacCode();
+        macCode.printFour();
     }
 }
