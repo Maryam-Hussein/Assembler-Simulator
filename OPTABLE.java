@@ -31,7 +31,6 @@ public class OPTABLE
             int i;
             for (i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
             {
-
                 if (ABC[i].equals("LDX")) {
                     System.out.println(ABC[i] + "                " + A.get("LDX"));
                 } else if (ABC[i].equals("LDCH")) {
@@ -55,8 +54,6 @@ public class OPTABLE
                 } else if (ABC[i].equals("ADD")) {
                     System.out.println(ABC[i] + "                " + A.get("ADD"));
                 }
-                //else System.out.println("This is not include connect whit engineer :(");
-
             }
         }
     }
