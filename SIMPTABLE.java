@@ -24,12 +24,25 @@ public class SIMPTABLE {
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Assmbler\\src\\com\\company\\input.txt"));
         String text;
-        int LOC = -3;
+        int LOC = 0;
         while ((text = bufferedReader.readLine()) != null) {
             String[] ABC = text.split("\\s");
             for (int i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
             {
-                    if (ABC[i].equals("LDX")) {
+                for (int j = 1; j < ABC.length; j++) //Nested Loop to set LOC
+                {
+                    if (ABC[j].equals("START")) // Program won't run without word "START"
+                    {
+                        for (int k = 1; k < ABC.length; k++)
+                        try {
+                            LOC = Integer.parseInt(ABC[k]);
+                            LOC -=3;
+                        }catch (NumberFormatException ignored){}
+                    }
+                }
+
+
+                     if (ABC[i].equals("LDX")) {
                         LOC+=3;
                         System.out.println(A.get("LDX") + "           " + Integer.toHexString(LOC));
                     } else if (ABC[i].equals("LDCH")) {
@@ -63,8 +76,8 @@ public class SIMPTABLE {
                         LOC += 3;
                         System.out.println(A.get("ADD") + "           " + Integer.toHexString(LOC));
                     }else if(ABC[i].equals("WORD")){LOC+=3;}
-                    else if(ABC[i].equals("BYTE")){LOC+=3;}
-                    else if(ABC[i].equals("RESB")){LOC+=3;}
+                    else if(ABC[i].equals("BYTE")){LOC++;}
+                    else if(ABC[i].equals("RESB")){LOC++;}
                     else if(ABC[i].equals("RESW")){LOC+=3;}
                 }
             }
