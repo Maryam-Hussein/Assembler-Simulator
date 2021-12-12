@@ -42,18 +42,17 @@ public class Main
 
         System.out.println(" ");
         System.out.println("------------------------------------");
-        System.out.println("Machine Code                        ");
-        System.out.println("------------------------------------");
-        MacCode macCode = new MacCode();
-        macCode.printFour();
-
-
-
-        System.out.println(" ");
-        System.out.println("------------------------------------");
         System.out.println("ObProgram                           ");
         System.out.println("------------------------------------");
         ObProgram obProgram = new ObProgram();
         obProgram.printFive();
+
+
+        System.out.println(" ");
+        System.out.println("------------------------------------");
+        System.out.println("Machine Code                        ");
+        System.out.println("------------------------------------");
+        MacCode macCode = new MacCode();
+        macCode.printFour();
     }
 }
