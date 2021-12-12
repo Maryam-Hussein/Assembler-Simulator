@@ -28,14 +28,11 @@ public class ObjCode
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Assmbler\\src\\com\\company\\input.txt"));
         String text;
-
-
+        int LOC = 0;
         while ((text = bufferedReader.readLine()) != null) {
             String[] ABC = text.split("\\s");
-            int LOC =-3;
             int x = 1;
             for (int i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
             {
@@ -44,6 +41,20 @@ public class ObjCode
                     if (ABC[j].equals(",X")) x = 1;
                     else x = 0;
                 }
+
+                for (int j = 1; j < ABC.length; j++) //Nested Loop to set LOC
+                {
+                    if (ABC[j].equals("START")) // Program won't run without word "START"
+                    {
+                        for (int k = 1; k < ABC.length; k++)
+                            try {
+                                LOC = Integer.parseInt(ABC[k]);
+                                LOC -=3;
+                            }catch (NumberFormatException ignored){}
+                    }
+                }
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////
 
                 if (ABC[i].equals("LDX")) {
                     LOC += 3;
@@ -97,14 +108,13 @@ public class ObjCode
                 }
                 else if(ABC[i].equals("BYTE"))
                 {
-                    LOC+=3;
                     for (int b = 1; b < ABC.length; b++) //Nested Loop for ASCII Code
                     {
-                            if (ABC[b].equals("A")){System.out.println(B.get("A"));}
-                            else if (ABC[b].equals("B")){System.out.printf(B.get("B"));}
-                            else if (ABC[b].equals("C")){System.out.printf(B.get("C"));}
-                            else if (ABC[b].equals("D")){System.out.println(B.get("D"));}
-                    }
+                            if (ABC[b].equals("A")){System.out.printf(B.get("A")); LOC++;}
+                            else if (ABC[b].equals("B")){System.out.printf(B.get("B"));LOC++;}
+                            else if (ABC[b].equals("C")){System.out.printf(B.get("C"));LOC++;}
+                            else if (ABC[b].equals("D")){System.out.printf(B.get("D"));LOC++;}
+                    }System.out.println(" ");
                 }
                 else if(ABC[i].equals("RESB")){LOC+=3;}
                 else if(ABC[i].equals("RESW")){LOC+=3;}
