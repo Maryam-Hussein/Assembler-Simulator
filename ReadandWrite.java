@@ -1,0 +1,64 @@
+package com.company;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.HashMap;
+
+public class ReadandWrite
+{
+    public static void main(String[] args) throws Exception
+    {
+        // Hash map act as database
+        HashMap<String, String> A= new HashMap<String,String>(); // A is name of Hash map
+            A.put("LDX", "04");
+            A.put("LDCH","50");
+            A.put("STCH","54");
+            A.put("TIX","2C");
+            A.put("JLT","38");
+            A.put("JGT","34");
+            A.put("JEQ","30");
+            A.put("DIV","24");
+            A.put("MUL","20");
+            A.put("SUB","1C");
+            A.put("ADD","18");
+
+
+
+
+
+    BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Project\\src\\com\\company\\input.txt"));
+    String text;
+        while ((text = bufferedReader.readLine()) != null)
+        {
+            String ABC[] = text.split("\\s");
+            int i;
+            for (i=1;i < ABC.length;i++) // ABC is name of Array of Strings --> input.txt
+            {
+
+                if (ABC[i].equals("LDX"))
+                {System.out.println(ABC[i]+"                "+A.get("LDX"));}
+                else if (ABC[i].equals("LDCH"))
+                {System.out.println(ABC[i]+"               "+A.get("LDCH"));}
+                else if (ABC[i].equals("STCH"))
+                {System.out.println(ABC[i]+"               "+A.get("STCH"));}
+                else if (ABC[i].equals("TIX"))
+                {System.out.println(ABC[i]+"                "+A.get("TIX"));}
+                else if (ABC[i].equals("JLT"))
+                {System.out.println(ABC[i]+"                "+A.get("JLT"));}
+                else if (ABC[i].equals("JGT"))
+                {System.out.println(ABC[i]+"                "+A.get("JGT"));}
+                else if (ABC[i].equals("JEQ"))
+                {System.out.println(ABC[i]+"                "+A.get("JEQ"));}
+                else if (ABC[i].equals("DIV"))
+                {System.out.println(ABC[i]+"                "+A.get("DIV"));}
+                else if (ABC[i].equals("MUL"))
+                {System.out.println(ABC[i]+"                "+A.get("MUL"));}
+                else if (ABC[i].equals("SUB"))
+                {System.out.println(ABC[i]+"                "+A.get("SUB"));}
+                else if (ABC[i].equals("ADD"))
+                {System.out.println(ABC[i]+"                "+A.get("ADD"));}
+                //else System.out.println("This is not include connect whit engineer :(");
+
+            }
+        }
+    }
+}
