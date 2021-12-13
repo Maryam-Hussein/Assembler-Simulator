@@ -53,7 +53,7 @@ public class MacCode {
                     {
                         for (int k = 1; k < ABC.length; k++)
                             try {
-                                LOC = Integer.parseInt(ABC[k]);
+                                LOC = Integer.parseInt(ABC[k],16);
                                 LOC -=3;
                             }catch (NumberFormatException ignored){}  //to avoid error of convert String to Integer
                     }
@@ -68,7 +68,7 @@ public class MacCode {
                     {
                         for (int k = 1; k < ABC.length; k++)
                             try {
-                                LOC = Integer.parseInt(ABC[k]);
+                                LOC = Integer.parseInt(ABC[k],16);
                             }catch (NumberFormatException ignored){}
                     }
                 }
@@ -126,7 +126,7 @@ public class MacCode {
                     LOC += 3;
                     String MUL = A.get("MUL") + x + Integer.toHexString(LOC);
                     System.out.println(Integer.toBinaryString(Integer.parseInt(MUL, 16)));
-                    bufferedWriter.write(Integer.parseInt(MUL, 16));
+                    bufferedWriter.write(Integer.toBinaryString(Integer.parseInt(MUL, 16)));
                     bufferedWriter.newLine();
                 } else if (ABC[i].equals("SUB")) {
                     LOC += 3;
