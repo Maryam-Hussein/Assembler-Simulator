@@ -35,7 +35,7 @@ public class SIMPTABLE {
                     {
                         for (int k = 1; k < ABC.length; k++)
                             try {
-                                LOC = Integer.parseInt(ABC[k]);
+                                LOC = Integer.parseInt(ABC[k],16);
                                 LOC -=3;
                             }catch (NumberFormatException ignored){}  //to avoid error of convert String to Integer
                     }
@@ -79,7 +79,7 @@ public class SIMPTABLE {
                     System.out.println(A.get("ADD") + "           " + Integer.toHexString(LOC));
                 }
 
-            /*else if(ABC[i].equals("WORD")){LOC+=3;}
+                /*else if(ABC[i].equals("WORD")){LOC+=3;}
              else if(ABC[i].equals("BYTE")){LOC++;}
              else if (ABC[i].equals("RESB")){LOC+=Integer.parseInt(ABC[i+2]);}
              else if (ABC[i].equals("RESW")) {LOC+=Integer.parseInt(ABC[i+2]);}*/
