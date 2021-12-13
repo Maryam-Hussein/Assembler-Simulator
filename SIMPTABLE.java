@@ -21,14 +21,14 @@ public class SIMPTABLE {
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        // BufferedReader is better from FileReader (fast,store ata in new place,take more code..)
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Project\\src\\com\\company\\input.txt"));
-        String text;
-        int LOC = 0;
-        while ((text = bufferedReader.readLine()) != null) {
-            String[] ABC = text.split("\\s");
+        String text; //place to store the assembly program in BufferedReader
+        int LOC = 0; //Location Counter
+        while ((text = bufferedReader.readLine()) != null) { // loop to check every line is readied
+            String[] ABC = text.split("\\s"); // Array to split text
             for (int i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
-            {
+            { // For loop to store every word in ABC[] according to space
                 for (int j = 1; j < ABC.length; j++) //Nested Loop to set LOC
                 {
                     if (ABC[j].equals("START")) // Program won't run without word "START"
@@ -37,14 +37,16 @@ public class SIMPTABLE {
                             try {
                                 LOC = Integer.parseInt(ABC[k]);
                                 LOC -=3;
-                            }catch (NumberFormatException ignored){}
+                            }catch (NumberFormatException ignored){}  //to avoid error of convert String to Integer
                     }
                 }
 
+                /////////////////////////////////////////////////////////////////////////////////////////////////
 
+                //if Conditions to search in instruction
                 if (ABC[i].equals("LDX")) {
-                    LOC+=3;
-                    System.out.println(A.get("LDX") + "           " + Integer.toHexString(LOC));
+                    LOC+=3; // in SIC every instruction take '3 Byte == 1 Word'
+                    System.out.println(A.get("LDX") + "           " + Integer.toHexString(LOC)); // toHexString convert Integer from decimal value to Hex
                 } else if (ABC[i].equals("LDCH")) {
                     LOC += 3;
                     System.out.println(A.get("LDCH") + "           " + Integer.toHexString(LOC));
@@ -75,10 +77,12 @@ public class SIMPTABLE {
                 } else if (ABC[i].equals("ADD")) {
                     LOC += 3;
                     System.out.println(A.get("ADD") + "           " + Integer.toHexString(LOC));
-                }else if(ABC[i].equals("WORD")){LOC+=3;}
-                else if(ABC[i].equals("BYTE")){LOC++;}
-                else if(ABC[i].equals("RESB")){LOC++;}
-                else if(ABC[i].equals("RESW")){LOC+=3;}
+                }
+
+            /*else if(ABC[i].equals("WORD")){LOC+=3;}
+             else if(ABC[i].equals("BYTE")){LOC++;}
+             else if (ABC[i].equals("RESB")){LOC+=Integer.parseInt(ABC[i+2]);}
+             else if (ABC[i].equals("RESW")) {LOC+=Integer.parseInt(ABC[i+2]);}*/
             }
         }
     }

@@ -26,22 +26,21 @@ public class MacCode {
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        // BufferedReader is better from FileReader (fast,store ata in new place,take more code..)
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Project\\src\\com\\company\\input.txt"));
-        File file = new File("Machine Code.txt");
+        File file = new File("Machine Code.txt");// txt. file to Preparation the code to be executed
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-
         ////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String text;
-        int LOC = 0;
-        while ((text = bufferedReader.readLine()) != null) {
+        String text; //place to store the assembly program in BufferedReader
+        int LOC = 0; //Location Counter
+        while ((text = bufferedReader.readLine()) != null) { // loop to check every line is readied
             String[] ABC = text.split("\\s");
             int x = 1;
             for (int i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
-            {
+            { // For loop to store every word in ABC[] according to space
                 for (int j = 1; j < ABC.length; j++) //Nested Loop  "flag X"
                 {
                     if (ABC[j].equals(",X")) x = 1;
@@ -56,12 +55,13 @@ public class MacCode {
                             try {
                                 LOC = Integer.parseInt(ABC[k]);
                                 LOC -=3;
-                            }catch (NumberFormatException ignored){}
+                            }catch (NumberFormatException ignored){}  //to avoid error of convert String to Integer
                     }
                 }
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////
 
+                //if Conditions to search in instruction
                 for (int j = 1; j < ABC.length; j++) //Nested Loop to set LOC
                 {
                     if (ABC[j].equals("START")) // Program won't run without word "START"
@@ -75,11 +75,11 @@ public class MacCode {
 
 
                 if (ABC[i].equals("LDX")) {
-                    LOC += 3;
-                    String LDX = A.get("LDX") + x + Integer.toHexString(LOC);
-                    System.out.println(Integer.toBinaryString(Integer.parseInt(LDX, 16)));
+                    LOC += 3; // in SIC every instruction take '3 Byte == 1 Word'
+                    String LDX = A.get("LDX") + x + Integer.toHexString(LOC); // toHexString convert Integer from decimal value to Hex
+                    System.out.println(Integer.toBinaryString(Integer.parseInt(LDX, 16))); // toBinaryString convert Integer from HEX value to Binary
                     bufferedWriter.write(Integer.toBinaryString(Integer.parseInt(LDX, 16)));
-                    bufferedWriter.newLine();
+                    bufferedWriter.newLine();  // make new line in txt. file
                 } else if (ABC[i].equals("LDCH")) {
                     LOC += 3;
                     String LDCH = A.get("LDCH") + x + Integer.toHexString(LOC);
@@ -145,7 +145,7 @@ public class MacCode {
                 /////////////////////////////////////////////////////////////////////////////////////////////////
 
                 else if(ABC[i].equals("WORD"))
-                {
+                {// Our Assembler doesn't take word greater than 2000 because it is so simple
                     LOC+=3;
                     for (int w = 1; w < ABC.length; w++) //Nested Loop to guss the number and make obj code for it :0
                     {
@@ -164,16 +164,30 @@ public class MacCode {
                     for (int b = 1; b < ABC.length; b++) //Nested Loop for ASCII Code
                     {
                         if (ABC[b].equals("A")){System.out.printf(B.get("A"));bufferedWriter.write(B.get("A"));LOC++;}
-                        else if (ABC[b].equals("B")){System.out.printf(B.get("B"));bufferedWriter.write(B.get("B"));LOC++;}
-                        else if (ABC[b].equals("C")){System.out.printf(B.get("C"));bufferedWriter.write(B.get("C"));LOC++;}
-                        else if (ABC[b].equals("D")){System.out.printf(B.get("D"));bufferedWriter.write(B.get("D"));LOC++;}
+                        else if (ABC[b].equals("B"))
+                        {System.out.printf(B.get("B"));bufferedWriter.write(B.get("B"));LOC++;}
+                        else if (ABC[b].equals("C"))
+                        {System.out.printf(B.get("C"));bufferedWriter.write(B.get("C"));LOC++;}
+                        else if (ABC[b].equals("D"))
+                        {System.out.printf(B.get("D"));bufferedWriter.write(B.get("D"));LOC++;}
                     }System.out.println(" ");
                     bufferedWriter.newLine();
+
+
+
+                } else if (ABC[i].equals("RESB")){
+                    try{
+                        for (int o = 1;o< ABC.length ; o++)
+                            LOC+=Integer.parseInt(ABC[o++]);
+                    }catch(NumberFormatException ignored){};
+                } else if (ABC[i].equals("RESW")) {
+                    try {
+                        for (int o = 1; o < ABC.length; o++)
+                            LOC += Integer.parseInt(ABC[o++]);
+                    } catch (NumberFormatException ignored) {}
                 }
-                else if(ABC[i].equals("RESB")){LOC++;}
-                else if(ABC[i].equals("RESW")){LOC+=3;}
             }
         }
-        bufferedWriter.close();
+        bufferedWriter.close(); // to close txt. file
     }
 }

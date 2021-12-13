@@ -22,15 +22,16 @@ public class OPTABLE
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        // BufferedReader is better from FileReader (fast,store ata in new place,take more code..)
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\HUAWEI\\IdeaProjects\\EC 241 - Assmbler\\src\\com\\company\\input.txt"));
-        String text;
-        while ((text = bufferedReader.readLine()) != null)
-        {
-            String ABC[] = text.split("\\s");
+        String text; //place to store the assembly program in BufferedReader
+        while ((text = bufferedReader.readLine()) != null) { // loop to check every line is readied
+            String ABC[] = text.split("\\s"); // Array to split text
             int i;
             for (i = 1; i < ABC.length; i++) // ABC is name of Array of Strings --> input.txt
-            {
+            { // For loop to store every word in ABC[] according to space
+
+                //if Conditions to search in instruction
                 if (ABC[i].equals("LDX")) {
                     System.out.println(ABC[i] + "                " + A.get("LDX"));
                 } else if (ABC[i].equals("LDCH")) {

@@ -16,6 +16,13 @@ public class Main
 {
     public static void main(String[] args) throws Exception {
 
+        /*
+        A quick guide to dealing with our Assembler ;)
+        * in main we just make obj from each class we have the call print method on it
+        PASS 1
+        *
+        *
+        */
 
         System.out.println("------------------------------------");
         System.out.println("OPTABLE                             ");
@@ -31,7 +38,6 @@ public class Main
         SIMPTABLE simptable = new SIMPTABLE();
         simptable.printTwo();
 
-
         System.out.println(" ");
         System.out.println("------------------------------------");
         System.out.println("ObjCode 'By hexadecimal'            ");
@@ -46,6 +52,7 @@ public class Main
         System.out.println("------------------------------------");
         ObProgram obProgram = new ObProgram();
         obProgram.printFive();
+
 
 
         System.out.println(" ");
